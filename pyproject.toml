@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snip"
+version = "0.1.0"
+description = "Context-aware local code snippet manager with AI-powered tagging"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "snip" }]
+keywords = ["snippets", "cli", "code", "ai", "local"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development",
+]
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.7",
+    "pyperclip>=1.8",
+    "Pygments>=2.17",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.40"]
+openai = ["openai>=1.40"]
+google = ["google-generativeai>=0.7"]
+all = [
+    "anthropic>=0.40",
+    "openai>=1.40",
+    "google-generativeai>=0.7",
+]
+
+[project.scripts]
+snip = "snip.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/kyroX-D/Snip"
+
+[tool.setuptools.packages.find]
+where = ["src"]
